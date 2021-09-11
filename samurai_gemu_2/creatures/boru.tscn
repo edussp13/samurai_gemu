@@ -1,0 +1,485 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://samurai_gemu_2/creatures/Sprites-Bolinha.png" type="Texture" id=1]
+[ext_resource path="res://samurai_gemu_2/creatures/boru.gd" type="Script" id=2]
+[ext_resource path="res://samurai_gemu_2/creatures/Sprites-Bolinha-Sombra.png" type="Texture" id=3]
+[ext_resource path="res://samurai_gemu_2/creatures/Jumping_down.tres" type="Animation" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 69.2276
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle_down"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle_left"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 12 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Jumping_down"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 3, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bolinha:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -12.014 ), Vector2( 0, -100.113 ), Vector2( 0, -12.0136 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "jumping"
+}, {
+"args": [  ],
+"method": "to_ground"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sombura:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.6 ), Vector2( 0.5, 0.6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("bolinha:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Jumping_right"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 8, 11, 11 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bolinha:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -12.014 ), Vector2( 0, -100.113 ), Vector2( 0, -12.0136 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "jumping"
+}, {
+"args": [  ],
+"method": "to_ground"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sombura:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.6 ), Vector2( 0.5, 0.6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("bolinha:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Jumping_up"
+length = 1.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("bolinha:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 12, 15, 15 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bolinha:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.7, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -12.014 ), Vector2( 0, -100.113 ), Vector2( 0, -12.0136 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "jumping"
+}, {
+"args": [  ],
+"method": "to_ground"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("sombura:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.6 ), Vector2( 0.5, 0.6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Hurtbox/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("bolinha:z_index")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "my_final_massage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "death"
+} ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "Idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=10]
+animation = "Idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=13]
+blend_point_0/node = SubResource( 9 )
+blend_point_0/pos = Vector2( -1.1, 0 )
+blend_point_1/node = SubResource( 10 )
+blend_point_1/pos = Vector2( 0, -1 )
+blend_point_2/node = SubResource( 11 )
+blend_point_2/pos = Vector2( 0, 1 )
+blend_point_3/node = SubResource( 12 )
+blend_point_3/pos = Vector2( 1.1, 0 )
+min_space = Vector2( -1.1, -1 )
+max_space = Vector2( 1.1, 1 )
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Jumping_left"
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "Jumping_right"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Jumping_up"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Jumping_down"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=18]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1.1, 0 )
+blend_point_1/node = SubResource( 15 )
+blend_point_1/pos = Vector2( 1.1, 0 )
+blend_point_2/node = SubResource( 16 )
+blend_point_2/pos = Vector2( 0, -1 )
+blend_point_3/node = SubResource( 17 )
+blend_point_3/pos = Vector2( 0, 1 )
+min_space = Vector2( -1.1, -1 )
+max_space = Vector2( 1.1, 1 )
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/Idle/node = SubResource( 13 )
+states/Idle/position = Vector2( 225, 73 )
+states/Jump/node = SubResource( 18 )
+states/Jump/position = Vector2( 510, 73 )
+transitions = [ "Idle", "Jump", SubResource( 19 ), "Jump", "Idle", SubResource( 20 ) ]
+start_node = "Idle"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+
+[sub_resource type="CapsuleShape2D" id=23]
+radius = 60.6963
+height = 0.0
+
+[sub_resource type="CircleShape2D" id=24]
+radius = 83.2736
+
+[node name="boru" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="bolinha" type="Sprite" parent="."]
+position = Vector2( 0, -12.0136 )
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sombura" type="Sprite" parent="."]
+position = Vector2( 0.629959, -12.6992 )
+scale = Vector2( 0.5, 0.6 )
+texture = ExtResource( 3 )
+
+[node name="CollisionBox" type="CollisionShape2D" parent="."]
+visible = false
+modulate = Color( 0.87451, 1, 0, 1 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle_down = SubResource( 2 )
+anims/Idle_left = SubResource( 3 )
+anims/Idle_right = SubResource( 4 )
+anims/Idle_up = SubResource( 5 )
+anims/Jumping_down = SubResource( 6 )
+anims/Jumping_left = ExtResource( 4 )
+anims/Jumping_right = SubResource( 7 )
+anims/Jumping_up = SubResource( 8 )
+anims/my_final_massage = SubResource( 25 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 22 )
+parameters/Idle/blend_position = Vector2( 0, -0.155172 )
+parameters/Jump/blend_position = Vector2( -0.163513, -0.0172414 )
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 3.07564, -0.97659 )
+shape = SubResource( 23 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2( -3.87395, -13.4848 )
+collision_layer = 0
+collision_mask = 2147483652
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+modulate = Color( 0.290196, 0, 1, 1 )
+position = Vector2( 2.99664, 1.49832 )
+shape = SubResource( 24 )
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]

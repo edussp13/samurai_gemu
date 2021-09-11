@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://samurai_gemu_2/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://samurai_gemu_2/scenario/chão-de-madeira-100x100.png" type="Texture" id=2]
+[ext_resource path="res://samurai_gemu_2/scenario/dojo.png" type="Texture" id=3]
+[ext_resource path="res://samurai_gemu_2/ui/png-clipart-heart-open-free-content-heart.png" type="Texture" id=4]
+[ext_resource path="res://samurai_gemu_2/creatures/boru.tscn" type="PackedScene" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 86.2046, 30.6592 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 46.6949, 72.7483 )
+
+[sub_resource type="SegmentShape2D" id=3]
+a = Vector2( 1860, -45 )
+b = Vector2( -18, -45 )
+
+[sub_resource type="SegmentShape2D" id=4]
+a = Vector2( -50, -200 )
+b = Vector2( -50, 850 )
+
+[sub_resource type="SegmentShape2D" id=5]
+a = Vector2( -6, 900 )
+b = Vector2( 1850, 900 )
+
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( 1850, 900 )
+b = Vector2( 1850, -120 )
+
+[node name="World" type="Node2D"]
+position = Vector2( 7.63803, 129.954 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="coracon" type="Panel" parent="HUD"]
+margin_left = 50.0
+margin_top = 61.0
+margin_right = 224.0
+margin_bottom = 115.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HUD"]
+margin_left = 51.0
+margin_top = 62.0
+margin_right = 2695.0
+margin_bottom = 2453.0
+rect_scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cenario" type="StaticBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Cenario"]
+position = Vector2( 913.623, 472.814 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1850, 1050 )
+region_filter_clip = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Dojo" type="Sprite" parent="Cenario"]
+visible = false
+position = Vector2( 927.84, 384.435 )
+scale = Vector2( 1.63533, 1.5974 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Santuario" type="CollisionShape2D" parent="Cenario"]
+position = Vector2( 917.602, 54.1249 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Mamaco" type="CollisionShape2D" parent="Cenario"]
+position = Vector2( 88.367, 479.027 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Foreground" type="YSort" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="boru3" parent="Foreground" instance=ExtResource( 5 )]
+position = Vector2( 526.554, 466.819 )
+
+[node name="boru2" parent="Foreground" instance=ExtResource( 5 )]
+position = Vector2( 908.717, 210.252 )
+
+[node name="boru" parent="Foreground" instance=ExtResource( 5 )]
+position = Vector2( 1291.02, 465.072 )
+
+[node name="Player" parent="Foreground" instance=ExtResource( 1 )]
+position = Vector2( 952.941, 876.901 )
+
+[node name="LimitesTela" type="StaticBody2D" parent="Foreground"]
+position = Vector2( -33.6739, 26.9391 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Cima" type="CollisionShape2D" parent="Foreground/LimitesTela"]
+position = Vector2( 4.49493, 58.434 )
+shape = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Esquerda" type="CollisionShape2D" parent="Foreground/LimitesTela"]
+position = Vector2( 126.568, 49.6322 )
+shape = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Baixo" type="CollisionShape2D" parent="Foreground/LimitesTela"]
+position = Vector2( -2.1189, -31.7839 )
+shape = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Direita" type="CollisionShape2D" parent="Foreground/LimitesTela"]
+position = Vector2( -6.35291, 1.05042 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
